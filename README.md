@@ -16,8 +16,7 @@ In Code:
       
 		pageControl.setPointCount(tvList.length);
 		pageControl.setOnPageControlListener(viewPager, pageControl);
-		
-      }else{
+}else{
       
 		int currentItem = 0;
 	        int nextItem = 0;
