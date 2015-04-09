@@ -17,8 +17,8 @@ In Code:
 		pageControl.setPointCount(tvList.length);
 		pageControl.setOnPageControlListener(viewPager, pageControl);
 }else{
-      
-		int currentItem = 0;
+      		
+      		int currentItem = 0;
 	        int nextItem = 0;
 	        boolean isMoving = false;
 	        
@@ -67,5 +67,4 @@ In Code:
 			    }
 		    });
       
-      
-      }
+}
