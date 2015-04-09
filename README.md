@@ -84,6 +84,60 @@ Please do! I'm happy to review and accept pull requests.
 				    return false;
 			    }
 		    });
+	//==================================================
+	//if you can not get ACTION_DOWN,just:
+	//==================================================
+      		int currentItem = 0;
+	        int nextItem = 0;
+	        boolean isMoving = false;
+	        float XDown = -1;
+	        
+		    viewPager.setOnPageChangeListener(new OnPageChangeListener() {
+			    @Override
+			    public void onPageSelected(int arg0) {}
+
+			    @Override
+			    public void onPageScrolled(int arg0, float arg1, int arg2) {
+				    if (isMoving) {
+					    pageControl.moving(currentItem, nextItem, arg1, true);
+				    }
+			    }
+
+			    @Override
+			    public void onPageScrollStateChanged(int arg0) {
+				    if (arg0 == 0) {// 滑动结束
+					    currentItem = viewPager.getCurrentItem();
+				    }else if (arg0 == 2) {// 滑动手指离开屏幕
+					    isMoving = false;
+					    XDown = -1;
+					    pageControl.leftActionAnimation(currentItem, viewPager.getCurrentItem());
+					    currentItem = viewPager.getCurrentItem();
+				    }
+			    }
+		    });
+
+		    viewPager.setOnTouchListener(new OnTouchListener() {
+		    
+			    @Override
+			    public boolean onTouch(View v, MotionEvent event) {
+				    switch (event.getAction()) {
+						case MotionEvent.ACTION_MOVE:
+							if (XDown > 0 && event.getX() > XDown && currentPageItem > 0) {
+								nextItem = currentPageItem - 1;
+								isMoving = true;
+							} else if (XDown > 0) {
+								nextItem = currentPageItem + 1;
+								isMoving = true;
+							}
+							if (!isMoving) {
+									XDown = event.getX();
+							}
+							break;
+					}
+					return false;		    
+				});
+
+		    
       
 ######}
 
@@ -105,6 +159,9 @@ Please do! I'm happy to review and accept pull requests.
 ###Demo
 ![Alt Text](https://raw.githubusercontent.com/JianhuaXu/PageControl/master/demo.gif)
 ![Alt Text](https://raw.githubusercontent.com/JianhuaXu/PageControl/master/demo2.gif)
+
+
+
 
 
 
