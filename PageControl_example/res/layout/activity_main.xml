@@ -19,8 +19,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:background="@android:color/transparent"
-        app:colorMovingPoint="#ff0000"
-        app:colorPoints="#00ff00" >
+        app:colorMovingPoint="#00ab7d"
+        app:colorPoints="#545454"
+        app:isFill="true" >
     </com.suiyiyi.pagecontrol.PageControl>
 
 </RelativeLayout>
