@@ -70,4 +70,5 @@ In Code:
 }
 
 
-[[https://raw.githubusercontent.com/JianhuaXu/PageControl/master/demo.gif | height = 100px]]
+
+![Alt Text](https://raw.githubusercontent.com/JianhuaXu/PageControl/master/demo.gif)
