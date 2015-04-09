@@ -3,13 +3,13 @@ PageControl for Android
 In XML:  
 
 	<com.suiyiyi.pagecontrol.PageControl  
-	android:id="@+id/pagecontrol"  
-	android:layout_width="wrap_content"  
-	android:layout_height="wrap_content"  
-	android:layout_alignParentBottom="true"  
-	android:layout_centerHorizontal="true"  
-	android:layout_marginBottom="20dp"  
-	android:background="@android:color/transparent"/>
+		android:id="@+id/pagecontrol"  
+		android:layout_width="wrap_content"  
+		android:layout_height="wrap_content"  
+		android:layout_alignParentBottom="true"  
+		android:layout_centerHorizontal="true"  
+		android:layout_marginBottom="20dp"  
+		android:background="@android:color/transparent"/>
         
 In Code:  
       if you do not need viewPage's onPageChangeListen and OnTouchListener,just{
@@ -68,4 +68,4 @@ In Code:
 		    });
       
 }
-C50D6EAC28E4795B73D84DD441368754.gif
+
