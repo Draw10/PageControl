@@ -22,7 +22,12 @@ Please do! I'm happy to review and accept pull requests.
 		android:layout_alignParentBottom="true"  
 		android:layout_centerHorizontal="true"  
 		android:layout_marginBottom="20dp"  
-		android:background="@android:color/transparent"/>
+		android:background="@android:color/transparent"
+		app:colorMovingPoint="#00ab7d"
+        app:colorPoints="#545454"
+        app:isFill="true"
+        app:radiusFocus="5dp"
+        app:radiusNormal="3dp"/>
         
 #####In Code:  
 ######if you do not need viewPage's onPageChangeListen and OnTouchListener,just{
@@ -82,7 +87,23 @@ Please do! I'm happy to review and accept pull requests.
       
 ######}
 
+#####All xml attributes:  
+
+	 <declare-styleable name="PageControl">
+        <attr name="colorMovingPoint" format="color" />
+        <attr name="colorPoints" format="color" />
+        <attr name="nums" format="integer" />
+        <attr name="space" format="dimension" />
+        <attr name="angle" format="dimension" />
+        <attr name="radiusNormal" format="dimension" />
+        <attr name="radiusFocus" format="dimension" />
+        <attr name="isFill" format="boolean" />
+    </declare-styleable>
+
+
 
 
 ![Alt Text](https://raw.githubusercontent.com/JianhuaXu/PageControl/master/demo.gif)
+
+
 
