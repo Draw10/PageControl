@@ -12,8 +12,8 @@ In XML:
         
 In Code:
       if you do not need viewPage's onPageChangeListen and OnTouchListener,just{
-      	pageControl.setPointCount(tvList.length);
-	pageControl.setOnPageControlListener(viewPager, pageControl);
+      		pageControl.setPointCount(tvList.length);
+		pageControl.setOnPageControlListener(viewPager, pageControl);
       }else{
 		int currentItem = 0;
 	        int nextItem = 0;
