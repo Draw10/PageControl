@@ -104,6 +104,8 @@ Please do! I'm happy to review and accept pull requests.
 
 
 ![Alt Text](https://raw.githubusercontent.com/JianhuaXu/PageControl/master/demo.gif)
+![Alt Text](https://raw.githubusercontent.com/JianhuaXu/PageControl/master/demo2.gif)
+
 
 
 
