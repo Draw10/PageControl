@@ -2,12 +2,14 @@
 <resources>
 
     <declare-styleable name="PageControl">
-        <attr name="color" format="color" />
+        <attr name="colorMovingPoint" format="color" />
+        <attr name="colorPoints" format="color" />
         <attr name="nums" format="integer" />
         <attr name="space" format="dimension" />
         <attr name="angle" format="dimension" />
         <attr name="radiusNormal" format="dimension" />
         <attr name="radiusFocus" format="dimension" />
+        <attr name="isFill" format="boolean" />
     </declare-styleable>
 
 </resources>

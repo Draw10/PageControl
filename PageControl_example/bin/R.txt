@@ -4,122 +4,124 @@ int anim abc_slide_in_bottom 0x7f040002
 int anim abc_slide_in_top 0x7f040003
 int anim abc_slide_out_bottom 0x7f040004
 int anim abc_slide_out_top 0x7f040005
-int attr actionBarDivider 0x7f010015
-int attr actionBarItemBackground 0x7f010016
-int attr actionBarSize 0x7f010014
-int attr actionBarSplitStyle 0x7f010012
-int attr actionBarStyle 0x7f010011
-int attr actionBarTabBarStyle 0x7f01000e
-int attr actionBarTabStyle 0x7f01000d
-int attr actionBarTabTextStyle 0x7f01000f
-int attr actionBarWidgetTheme 0x7f010013
-int attr actionButtonStyle 0x7f01001c
-int attr actionDropDownStyle 0x7f01004d
-int attr actionLayout 0x7f010054
-int attr actionMenuTextAppearance 0x7f010017
-int attr actionMenuTextColor 0x7f010018
-int attr actionModeBackground 0x7f010042
-int attr actionModeCloseButtonStyle 0x7f010041
-int attr actionModeCloseDrawable 0x7f010044
-int attr actionModeCopyDrawable 0x7f010046
-int attr actionModeCutDrawable 0x7f010045
-int attr actionModeFindDrawable 0x7f01004a
-int attr actionModePasteDrawable 0x7f010047
-int attr actionModePopupWindowStyle 0x7f01004c
-int attr actionModeSelectAllDrawable 0x7f010048
-int attr actionModeShareDrawable 0x7f010049
-int attr actionModeSplitBackground 0x7f010043
-int attr actionModeStyle 0x7f010040
-int attr actionModeWebSearchDrawable 0x7f01004b
-int attr actionOverflowButtonStyle 0x7f010010
-int attr actionProviderClass 0x7f010056
-int attr actionViewClass 0x7f010055
-int attr activityChooserViewStyle 0x7f010072
-int attr angle 0x7f010003
-int attr background 0x7f010035
-int attr backgroundSplit 0x7f010037
-int attr backgroundStacked 0x7f010036
-int attr buttonBarButtonStyle 0x7f01001e
-int attr buttonBarStyle 0x7f01001d
-int attr color 0x7f010000
-int attr customNavigationLayout 0x7f010038
-int attr disableChildrenWhenDisabled 0x7f01005a
-int attr displayOptions 0x7f01002e
-int attr divider 0x7f010034
-int attr dividerHorizontal 0x7f010021
-int attr dividerPadding 0x7f01005c
-int attr dividerVertical 0x7f010020
-int attr dropDownListViewStyle 0x7f010027
-int attr dropdownListPreferredItemHeight 0x7f01004e
-int attr expandActivityOverflowButtonDrawable 0x7f010071
-int attr height 0x7f01002c
-int attr homeAsUpIndicator 0x7f010019
-int attr homeLayout 0x7f010039
-int attr icon 0x7f010032
-int attr iconifiedByDefault 0x7f010060
-int attr indeterminateProgressStyle 0x7f01003b
-int attr initialActivityCount 0x7f010070
-int attr isLightTheme 0x7f01005f
-int attr itemPadding 0x7f01003d
-int attr listChoiceBackgroundIndicator 0x7f010052
-int attr listPopupWindowStyle 0x7f010028
-int attr listPreferredItemHeight 0x7f010022
-int attr listPreferredItemHeightLarge 0x7f010024
-int attr listPreferredItemHeightSmall 0x7f010023
-int attr listPreferredItemPaddingLeft 0x7f010025
-int attr listPreferredItemPaddingRight 0x7f010026
-int attr logo 0x7f010033
-int attr navigationMode 0x7f01002d
-int attr nums 0x7f010001
-int attr paddingEnd 0x7f01003f
-int attr paddingStart 0x7f01003e
-int attr panelMenuListTheme 0x7f010051
-int attr panelMenuListWidth 0x7f010050
-int attr popupMenuStyle 0x7f01004f
-int attr popupPromptView 0x7f010059
-int attr progressBarPadding 0x7f01003c
-int attr progressBarStyle 0x7f01003a
-int attr prompt 0x7f010057
-int attr queryHint 0x7f010061
-int attr radiusFocus 0x7f010005
-int attr radiusNormal 0x7f010004
-int attr searchDropdownBackground 0x7f010062
-int attr searchResultListItemHeight 0x7f01006b
-int attr searchViewAutoCompleteTextView 0x7f01006f
-int attr searchViewCloseIcon 0x7f010063
-int attr searchViewEditQuery 0x7f010067
-int attr searchViewEditQueryBackground 0x7f010068
-int attr searchViewGoIcon 0x7f010064
-int attr searchViewSearchIcon 0x7f010065
-int attr searchViewTextField 0x7f010069
-int attr searchViewTextFieldRight 0x7f01006a
-int attr searchViewVoiceIcon 0x7f010066
-int attr selectableItemBackground 0x7f01001f
-int attr showAsAction 0x7f010053
-int attr showDividers 0x7f01005b
-int attr space 0x7f010002
-int attr spinnerDropDownItemStyle 0x7f01005e
-int attr spinnerMode 0x7f010058
-int attr spinnerStyle 0x7f01005d
-int attr subtitle 0x7f01002f
-int attr subtitleTextStyle 0x7f010031
-int attr textAllCaps 0x7f010073
-int attr textAppearanceLargePopupMenu 0x7f01001a
-int attr textAppearanceListItem 0x7f010029
-int attr textAppearanceListItemSmall 0x7f01002a
-int attr textAppearanceSearchResultSubtitle 0x7f01006d
-int attr textAppearanceSearchResultTitle 0x7f01006c
-int attr textAppearanceSmallPopupMenu 0x7f01001b
-int attr textColorSearchUrl 0x7f01006e
-int attr title 0x7f01002b
-int attr titleTextStyle 0x7f010030
-int attr windowActionBar 0x7f010006
-int attr windowActionBarOverlay 0x7f010007
-int attr windowFixedHeightMajor 0x7f01000c
-int attr windowFixedHeightMinor 0x7f01000a
-int attr windowFixedWidthMajor 0x7f010009
-int attr windowFixedWidthMinor 0x7f01000b
-int attr windowSplitActionBar 0x7f010008
+int attr actionBarDivider 0x7f010017
+int attr actionBarItemBackground 0x7f010018
+int attr actionBarSize 0x7f010016
+int attr actionBarSplitStyle 0x7f010014
+int attr actionBarStyle 0x7f010013
+int attr actionBarTabBarStyle 0x7f010010
+int attr actionBarTabStyle 0x7f01000f
+int attr actionBarTabTextStyle 0x7f010011
+int attr actionBarWidgetTheme 0x7f010015
+int attr actionButtonStyle 0x7f01001e
+int attr actionDropDownStyle 0x7f01004f
+int attr actionLayout 0x7f010056
+int attr actionMenuTextAppearance 0x7f010019
+int attr actionMenuTextColor 0x7f01001a
+int attr actionModeBackground 0x7f010044
+int attr actionModeCloseButtonStyle 0x7f010043
+int attr actionModeCloseDrawable 0x7f010046
+int attr actionModeCopyDrawable 0x7f010048
+int attr actionModeCutDrawable 0x7f010047
+int attr actionModeFindDrawable 0x7f01004c
+int attr actionModePasteDrawable 0x7f010049
+int attr actionModePopupWindowStyle 0x7f01004e
+int attr actionModeSelectAllDrawable 0x7f01004a
+int attr actionModeShareDrawable 0x7f01004b
+int attr actionModeSplitBackground 0x7f010045
+int attr actionModeStyle 0x7f010042
+int attr actionModeWebSearchDrawable 0x7f01004d
+int attr actionOverflowButtonStyle 0x7f010012
+int attr actionProviderClass 0x7f010058
+int attr actionViewClass 0x7f010057
+int attr activityChooserViewStyle 0x7f010074
+int attr angle 0x7f010004
+int attr background 0x7f010037
+int attr backgroundSplit 0x7f010039
+int attr backgroundStacked 0x7f010038
+int attr buttonBarButtonStyle 0x7f010020
+int attr buttonBarStyle 0x7f01001f
+int attr colorMovingPoint 0x7f010000
+int attr colorPoints 0x7f010001
+int attr customNavigationLayout 0x7f01003a
+int attr disableChildrenWhenDisabled 0x7f01005c
+int attr displayOptions 0x7f010030
+int attr divider 0x7f010036
+int attr dividerHorizontal 0x7f010023
+int attr dividerPadding 0x7f01005e
+int attr dividerVertical 0x7f010022
+int attr dropDownListViewStyle 0x7f010029
+int attr dropdownListPreferredItemHeight 0x7f010050
+int attr expandActivityOverflowButtonDrawable 0x7f010073
+int attr height 0x7f01002e
+int attr homeAsUpIndicator 0x7f01001b
+int attr homeLayout 0x7f01003b
+int attr icon 0x7f010034
+int attr iconifiedByDefault 0x7f010062
+int attr indeterminateProgressStyle 0x7f01003d
+int attr initialActivityCount 0x7f010072
+int attr isFill 0x7f010007
+int attr isLightTheme 0x7f010061
+int attr itemPadding 0x7f01003f
+int attr listChoiceBackgroundIndicator 0x7f010054
+int attr listPopupWindowStyle 0x7f01002a
+int attr listPreferredItemHeight 0x7f010024
+int attr listPreferredItemHeightLarge 0x7f010026
+int attr listPreferredItemHeightSmall 0x7f010025
+int attr listPreferredItemPaddingLeft 0x7f010027
+int attr listPreferredItemPaddingRight 0x7f010028
+int attr logo 0x7f010035
+int attr navigationMode 0x7f01002f
+int attr nums 0x7f010002
+int attr paddingEnd 0x7f010041
+int attr paddingStart 0x7f010040
+int attr panelMenuListTheme 0x7f010053
+int attr panelMenuListWidth 0x7f010052
+int attr popupMenuStyle 0x7f010051
+int attr popupPromptView 0x7f01005b
+int attr progressBarPadding 0x7f01003e
+int attr progressBarStyle 0x7f01003c
+int attr prompt 0x7f010059
+int attr queryHint 0x7f010063
+int attr radiusFocus 0x7f010006
+int attr radiusNormal 0x7f010005
+int attr searchDropdownBackground 0x7f010064
+int attr searchResultListItemHeight 0x7f01006d
+int attr searchViewAutoCompleteTextView 0x7f010071
+int attr searchViewCloseIcon 0x7f010065
+int attr searchViewEditQuery 0x7f010069
+int attr searchViewEditQueryBackground 0x7f01006a
+int attr searchViewGoIcon 0x7f010066
+int attr searchViewSearchIcon 0x7f010067
+int attr searchViewTextField 0x7f01006b
+int attr searchViewTextFieldRight 0x7f01006c
+int attr searchViewVoiceIcon 0x7f010068
+int attr selectableItemBackground 0x7f010021
+int attr showAsAction 0x7f010055
+int attr showDividers 0x7f01005d
+int attr space 0x7f010003
+int attr spinnerDropDownItemStyle 0x7f010060
+int attr spinnerMode 0x7f01005a
+int attr spinnerStyle 0x7f01005f
+int attr subtitle 0x7f010031
+int attr subtitleTextStyle 0x7f010033
+int attr textAllCaps 0x7f010075
+int attr textAppearanceLargePopupMenu 0x7f01001c
+int attr textAppearanceListItem 0x7f01002b
+int attr textAppearanceListItemSmall 0x7f01002c
+int attr textAppearanceSearchResultSubtitle 0x7f01006f
+int attr textAppearanceSearchResultTitle 0x7f01006e
+int attr textAppearanceSmallPopupMenu 0x7f01001d
+int attr textColorSearchUrl 0x7f010070
+int attr title 0x7f01002d
+int attr titleTextStyle 0x7f010032
+int attr windowActionBar 0x7f010008
+int attr windowActionBarOverlay 0x7f010009
+int attr windowFixedHeightMajor 0x7f01000e
+int attr windowFixedHeightMinor 0x7f01000c
+int attr windowFixedWidthMajor 0x7f01000b
+int attr windowFixedWidthMinor 0x7f01000d
+int attr windowSplitActionBar 0x7f01000a
 int bool abc_action_bar_embed_tabs_pre_jb 0x7f080000
 int bool abc_action_bar_expanded_action_views_exclusive 0x7f080001
 int bool abc_config_actionMenuItemAllCaps 0x7f080005
@@ -491,7 +493,7 @@ int style Widget_AppCompat_PopupMenu 0x7f07002d
 int style Widget_AppCompat_ProgressBar 0x7f07000c
 int style Widget_AppCompat_ProgressBar_Horizontal 0x7f07000b
 int style Widget_AppCompat_Spinner_DropDown_ActionBar 0x7f070024
-int[] styleable ActionBar { 0x7f01002b, 0x7f01002c, 0x7f01002d, 0x7f01002e, 0x7f01002f, 0x7f010030, 0x7f010031, 0x7f010032, 0x7f010033, 0x7f010034, 0x7f010035, 0x7f010036, 0x7f010037, 0x7f010038, 0x7f010039, 0x7f01003a, 0x7f01003b, 0x7f01003c, 0x7f01003d }
+int[] styleable ActionBar { 0x7f01002d, 0x7f01002e, 0x7f01002f, 0x7f010030, 0x7f010031, 0x7f010032, 0x7f010033, 0x7f010034, 0x7f010035, 0x7f010036, 0x7f010037, 0x7f010038, 0x7f010039, 0x7f01003a, 0x7f01003b, 0x7f01003c, 0x7f01003d, 0x7f01003e, 0x7f01003f }
 int styleable ActionBar_background 10
 int styleable ActionBar_backgroundSplit 12
 int styleable ActionBar_backgroundStacked 11
@@ -513,7 +515,7 @@ int styleable ActionBar_title 0
 int styleable ActionBar_titleTextStyle 5
 int[] styleable ActionBarLayout { 0x010100b3 }
 int styleable ActionBarLayout_android_layout_gravity 0
-int[] styleable ActionBarWindow { 0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b, 0x7f01000c }
+int[] styleable ActionBarWindow { 0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b, 0x7f01000c, 0x7f01000d, 0x7f01000e }
 int styleable ActionBarWindow_windowActionBar 0
 int styleable ActionBarWindow_windowActionBarOverlay 1
 int styleable ActionBarWindow_windowFixedHeightMajor 6
@@ -524,18 +526,18 @@ int styleable ActionBarWindow_windowSplitActionBar 2
 int[] styleable ActionMenuItemView { 0x0101013f }
 int styleable ActionMenuItemView_android_minWidth 0
 int[] styleable ActionMenuView { }
-int[] styleable ActionMode { 0x7f01002c, 0x7f010030, 0x7f010031, 0x7f010035, 0x7f010037 }
+int[] styleable ActionMode { 0x7f01002e, 0x7f010032, 0x7f010033, 0x7f010037, 0x7f010039 }
 int styleable ActionMode_background 3
 int styleable ActionMode_backgroundSplit 4
 int styleable ActionMode_height 0
 int styleable ActionMode_subtitleTextStyle 2
 int styleable ActionMode_titleTextStyle 1
-int[] styleable ActivityChooserView { 0x7f010070, 0x7f010071 }
+int[] styleable ActivityChooserView { 0x7f010072, 0x7f010073 }
 int styleable ActivityChooserView_expandActivityOverflowButtonDrawable 1
 int styleable ActivityChooserView_initialActivityCount 0
-int[] styleable CompatTextView { 0x7f010073 }
+int[] styleable CompatTextView { 0x7f010075 }
 int styleable CompatTextView_textAllCaps 0
-int[] styleable LinearLayoutICS { 0x7f010034, 0x7f01005b, 0x7f01005c }
+int[] styleable LinearLayoutICS { 0x7f010036, 0x7f01005d, 0x7f01005e }
 int styleable LinearLayoutICS_divider 0
 int styleable LinearLayoutICS_dividerPadding 2
 int styleable LinearLayoutICS_showDividers 1
@@ -546,7 +548,7 @@ int styleable MenuGroup_android_id 1
 int styleable MenuGroup_android_menuCategory 3
 int styleable MenuGroup_android_orderInCategory 4
 int styleable MenuGroup_android_visible 2
-int[] styleable MenuItem { 0x01010002, 0x0101000e, 0x010100d0, 0x01010106, 0x01010194, 0x010101de, 0x010101df, 0x010101e1, 0x010101e2, 0x010101e3, 0x010101e4, 0x010101e5, 0x0101026f, 0x7f010053, 0x7f010054, 0x7f010055, 0x7f010056 }
+int[] styleable MenuItem { 0x01010002, 0x0101000e, 0x010100d0, 0x01010106, 0x01010194, 0x010101de, 0x010101df, 0x010101e1, 0x010101e2, 0x010101e3, 0x010101e4, 0x010101e5, 0x0101026f, 0x7f010055, 0x7f010056, 0x7f010057, 0x7f010058 }
 int styleable MenuItem_actionLayout 14
 int styleable MenuItem_actionProviderClass 16
 int styleable MenuItem_actionViewClass 15
@@ -573,20 +575,22 @@ int styleable MenuView_android_itemTextAppearance 1
 int styleable MenuView_android_preserveIconSpacing 7
 int styleable MenuView_android_verticalDivider 3
 int styleable MenuView_android_windowAnimationStyle 0
-int[] styleable PageControl { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005 }
-int styleable PageControl_angle 3
-int styleable PageControl_color 0
-int styleable PageControl_nums 1
-int styleable PageControl_radiusFocus 5
-int styleable PageControl_radiusNormal 4
-int styleable PageControl_space 2
-int[] styleable SearchView { 0x0101011f, 0x01010220, 0x01010264, 0x7f010060, 0x7f010061 }
+int[] styleable PageControl { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007 }
+int styleable PageControl_angle 4
+int styleable PageControl_colorMovingPoint 0
+int styleable PageControl_colorPoints 1
+int styleable PageControl_isFill 7
+int styleable PageControl_nums 2
+int styleable PageControl_radiusFocus 6
+int styleable PageControl_radiusNormal 5
+int styleable PageControl_space 3
+int[] styleable SearchView { 0x0101011f, 0x01010220, 0x01010264, 0x7f010062, 0x7f010063 }
 int styleable SearchView_android_imeOptions 2
 int styleable SearchView_android_inputType 1
 int styleable SearchView_android_maxWidth 0
 int styleable SearchView_iconifiedByDefault 3
 int styleable SearchView_queryHint 4
-int[] styleable Spinner { 0x010100af, 0x01010175, 0x01010176, 0x01010262, 0x010102ac, 0x010102ad, 0x7f010057, 0x7f010058, 0x7f010059, 0x7f01005a }
+int[] styleable Spinner { 0x010100af, 0x01010175, 0x01010176, 0x01010262, 0x010102ac, 0x010102ad, 0x7f010059, 0x7f01005a, 0x7f01005b, 0x7f01005c }
 int styleable Spinner_android_dropDownHorizontalOffset 4
 int styleable Spinner_android_dropDownSelector 1
 int styleable Spinner_android_dropDownVerticalOffset 5
@@ -597,14 +601,14 @@ int styleable Spinner_disableChildrenWhenDisabled 9
 int styleable Spinner_popupPromptView 8
 int styleable Spinner_prompt 6
 int styleable Spinner_spinnerMode 7
-int[] styleable Theme { 0x7f01004d, 0x7f01004e, 0x7f01004f, 0x7f010050, 0x7f010051, 0x7f010052 }
+int[] styleable Theme { 0x7f01004f, 0x7f010050, 0x7f010051, 0x7f010052, 0x7f010053, 0x7f010054 }
 int styleable Theme_actionDropDownStyle 0
 int styleable Theme_dropdownListPreferredItemHeight 1
 int styleable Theme_listChoiceBackgroundIndicator 5
 int styleable Theme_panelMenuListTheme 4
 int styleable Theme_panelMenuListWidth 3
 int styleable Theme_popupMenuStyle 2
-int[] styleable View { 0x010100da, 0x7f01003e, 0x7f01003f }
+int[] styleable View { 0x010100da, 0x7f010040, 0x7f010041 }
 int styleable View_android_focusable 0
 int styleable View_paddingEnd 2
 int styleable View_paddingStart 1

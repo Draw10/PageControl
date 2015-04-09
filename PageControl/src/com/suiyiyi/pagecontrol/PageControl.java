@@ -20,8 +20,9 @@ public class PageControl extends View {
 
 	private Paint paintStroke, paintFill;
 	private Path path;
-	private int color;
+	private int colorMovingPoint, colorPoints;
 	private int nums;
+	private boolean isFill;
 	private float space;
 	private float angle;
 	private float radiusNormal;
@@ -48,10 +49,9 @@ public class PageControl extends View {
 	}
 
 	private void init(Context context, AttributeSet attrs) {
-		strokeWidth = 1;
+		strokeWidth = 2;
 		path = new Path();
 		paintStroke = new Paint();
-		paintStroke.setStyle(Paint.Style.STROKE);
 		paintStroke.setStrokeWidth(strokeWidth);
 		paintStroke.setAntiAlias(true);
 		paintFill = new Paint();
@@ -61,13 +61,15 @@ public class PageControl extends View {
 
 		TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.PageControl, 0, 0);
 		try {
-			color = a.getColor(R.styleable.PageControl_color, Color.RED);
+			colorMovingPoint = a.getColor(R.styleable.PageControl_colorMovingPoint, Color.RED);
+			colorPoints = a.getColor(R.styleable.PageControl_colorPoints, Color.RED);
 			nums = a.getInt(R.styleable.PageControl_nums, 3);
 			space = a.getDimension(R.styleable.PageControl_space, 5);
 			angle = a.getDimension(R.styleable.PageControl_angle, (float) (135 * Math.PI / 180));
 			radiusNormal = a.getDimension(R.styleable.PageControl_radiusNormal, getResources()
 					.getDimension(R.dimen.default_pagecontrol_radius_normal));
 			radiusFocus = a.getDimension(R.styleable.PageControl_radiusFocus, getResources().getDimension(R.dimen.default_pagecontrol_radius_focus));
+			isFill = a.getBoolean(R.styleable.PageControl_isFill, false);
 		} finally {
 			a.recycle();
 		}
@@ -81,8 +83,13 @@ public class PageControl extends View {
 
 	private void initData() {
 		oldAngle = angle;
-		paintStroke.setColor(color);
-		paintFill.setColor(color);
+		if (isFill) {
+			paintStroke.setStyle(Paint.Style.FILL_AND_STROKE);
+		} else {
+			paintStroke.setStyle(Paint.Style.STROKE);
+		}
+		paintStroke.setColor(colorPoints);
+		paintFill.setColor(colorMovingPoint);
 		points = new Point[nums];
 
 		for (int i = 0; i < points.length; i++) {

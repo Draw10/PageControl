@@ -8,12 +8,14 @@ package com.suiyiyi.pagecontrol;
 
 public final class R {
 	public static final class attr {
-		public static final int angle = 0x7f010003;
-		public static final int color = 0x7f010000;
-		public static final int nums = 0x7f010001;
-		public static final int radiusFocus = 0x7f010005;
-		public static final int radiusNormal = 0x7f010004;
-		public static final int space = 0x7f010002;
+		public static final int angle = 0x7f010004;
+		public static final int colorMovingPoint = 0x7f010000;
+		public static final int colorPoints = 0x7f010001;
+		public static final int isFill = 0x7f010007;
+		public static final int nums = 0x7f010002;
+		public static final int radiusFocus = 0x7f010006;
+		public static final int radiusNormal = 0x7f010005;
+		public static final int space = 0x7f010003;
 	}
 	public static final class dimen {
 		public static final int default_pagecontrol_radius_focus = 0x7f050001;
@@ -30,12 +32,14 @@ public final class R {
 		public static final int AppTheme = 0x7f070001;
 	}
 	public static final class styleable {
-		public static final int[] PageControl = { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005 };
-		public static final int PageControl_angle = 3;
-		public static final int PageControl_color = 0;
-		public static final int PageControl_nums = 1;
-		public static final int PageControl_radiusFocus = 5;
-		public static final int PageControl_radiusNormal = 4;
-		public static final int PageControl_space = 2;
+		public static final int[] PageControl = { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007 };
+		public static final int PageControl_angle = 4;
+		public static final int PageControl_colorMovingPoint = 0;
+		public static final int PageControl_colorPoints = 1;
+		public static final int PageControl_isFill = 7;
+		public static final int PageControl_nums = 2;
+		public static final int PageControl_radiusFocus = 6;
+		public static final int PageControl_radiusNormal = 5;
+		public static final int PageControl_space = 3;
 	}
 }
