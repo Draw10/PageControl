@@ -1,6 +1,19 @@
 # PageControl  
 PageControl for Android  
-In XML:  
+
+###Contribute
+Please do! I'm happy to review and accept pull requests.
+###Developed By
+* Gavin
+
+
+
+###Special Thanks
+* Chenupt - [BezierDemo](https://github.com/chenupt/BezierDemo)
+
+
+###Getting Started
+#####In XML:  
 
 	<com.suiyiyi.pagecontrol.PageControl  
 		android:id="@+id/pagecontrol"  
@@ -11,12 +24,12 @@ In XML:
 		android:layout_marginBottom="20dp"  
 		android:background="@android:color/transparent"/>
         
-In Code:  
-      if you do not need viewPage's onPageChangeListen and OnTouchListener,just{
+#####In Code:  
+######if you do not need viewPage's onPageChangeListen and OnTouchListener,just{
       
 		pageControl.setPointCount(tvList.length);
 		pageControl.setOnPageControlListener(viewPager, pageControl);
-}else{
+######}else{
       		
       		int currentItem = 0;
 	        int nextItem = 0;
@@ -67,8 +80,9 @@ In Code:
 			    }
 		    });
       
-}
+######}
 
 
 
 ![Alt Text](https://raw.githubusercontent.com/JianhuaXu/PageControl/master/demo.gif)
+
