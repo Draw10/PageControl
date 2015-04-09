@@ -1,6 +1,7 @@
 # PageControl  
 PageControl for Android  
 In XML:  
+
 	com.suiyiyi.pagecontrol.PageControl  
 	android:id="@+id/pagecontrol"  
 	android:layout_width="wrap_content"  
@@ -12,9 +13,11 @@ In XML:
         
 In Code:
       if you do not need viewPage's onPageChangeListen and OnTouchListener,just{
+      
       		pageControl.setPointCount(tvList.length);
 		pageControl.setOnPageControlListener(viewPager, pageControl);
       }else{
+      
 		int currentItem = 0;
 	        int nextItem = 0;
 	        boolean isMoving = false;
