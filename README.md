@@ -116,26 +116,26 @@ Please do! I'm happy to review and accept pull requests.
 			    }
 		    });
 
-		    viewPager.setOnTouchListener(new OnTouchListener() {
-		    
-			    @Override
-			    public boolean onTouch(View v, MotionEvent event) {
-				    switch (event.getAction()) {
-						case MotionEvent.ACTION_MOVE:
-							if (XDown > 0 && event.getX() > XDown && currentPageItem > 0) {
-								nextItem = currentPageItem - 1;
-								isMoving = true;
-							} else if (XDown > 0) {
-								nextItem = currentPageItem + 1;
-								isMoving = true;
-							}
-							if (!isMoving) {
-									XDown = event.getX();
-							}
-							break;
+		    mViewPager.setOnTouchListener(new OnTouchListener() {
+				@Override
+				public boolean onTouch(View v, MotionEvent event) {
+					switch (event.getAction()) {
+					case MotionEvent.ACTION_MOVE:
+						if (XDown > 0 && event.getX() > XDown && currentPageItem > 0) {
+							nextItem = currentPageItem - 1;
+							isMoving = true;
+						} else if (XDown > 0) {
+							nextItem = currentPageItem + 1;
+							isMoving = true;
+						}
+						if (!isMoving) {
+							XDown = event.getX();
+						}
+						break;
 					}
-					return false;		    
-				});
+					return false;
+				}
+			});
 
 		    
       
@@ -159,9 +159,6 @@ Please do! I'm happy to review and accept pull requests.
 ###Demo
 ![Alt Text](https://raw.githubusercontent.com/JianhuaXu/PageControl/master/demo.gif)
 ![Alt Text](https://raw.githubusercontent.com/JianhuaXu/PageControl/master/demo2.gif)
-
-
-
 
 
 
