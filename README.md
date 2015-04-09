@@ -11,7 +11,7 @@ In XML:
 	android:layout_marginBottom="20dp"  
 	android:background="@android:color/transparent"/>
         
-In Code:
+In Code:  
       if you do not need viewPage's onPageChangeListen and OnTouchListener,just{
       
 		pageControl.setPointCount(tvList.length);
