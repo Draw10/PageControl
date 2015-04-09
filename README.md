@@ -68,4 +68,4 @@ In Code:
 		    });
       
 }
-
+<img src="/JianhuaXu/PageControl/blob/master/demo.gif?raw=true" alt="demo.gif">
