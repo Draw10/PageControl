@@ -4,7 +4,7 @@ PageControl for Android
 ###Contribute
 Please do! I'm happy to review and accept pull requests.
 ###Developed By
-* Gavin
+* Gavin  <xujianhua.ae@gmail.com>
 
 
 
