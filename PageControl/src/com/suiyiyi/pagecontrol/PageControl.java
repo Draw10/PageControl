@@ -73,12 +73,14 @@ public class PageControl extends View {
 		} finally {
 			a.recycle();
 		}
-		initData();
+		if (nums > 1)
+			initData();
 	}
 
 	public void setPointCount(int count) {
 		this.nums = count;
-		initData();
+		if (nums > 1)
+			initData();
 	}
 
 	private void initData() {
@@ -148,6 +150,8 @@ public class PageControl extends View {
 	@SuppressLint("NewApi")
 	@Override
 	protected void onDraw(Canvas canvas) {
+		if (nums <= 1)
+			return;
 		canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.OVERLAY);
 		canvas.drawPath(path, paintFill);
 		for (int i = 0; i < points.length; i++) {
