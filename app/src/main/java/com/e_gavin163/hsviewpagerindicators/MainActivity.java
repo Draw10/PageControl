@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
         pageControl = (Indicator) findViewById(R.id.pagecontrol);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
 
-        makeData();
+        createData();
 
         pageControl.setup(
                 new Indicator.Builder()
@@ -35,7 +35,7 @@ public class MainActivity extends Activity {
         );
     }
 
-    private void makeData() {
+    private void createData() {
         tvList = new TextView[5];
         for (int i = 0; i < tvList.length; i++) {
             TextView tv = new TextView(MainActivity.this);
