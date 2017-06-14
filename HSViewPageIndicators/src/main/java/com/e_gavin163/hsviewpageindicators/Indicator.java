@@ -13,7 +13,6 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.concurrent.Executors;
@@ -359,8 +358,9 @@ public class Indicator extends View {
     int currentItem = 0;
     int nextItem = 0;
     boolean isMoving = false;
+    private float mLastPositionOffsetSum;
 
-    private void setOnPageControlListener(final ViewPager viewPager, final OnPageChangeListener onPageChangeListener, final OnTouchListener onTouchListener) {
+    private void setOnPageControlListener(final ViewPager viewPager, final OnPageChangeListener onPageChangeListener) {
         viewPager.setOnPageChangeListener(new OnPageChangeListener() {
             @Override
             public void onPageSelected(int arg0) {
@@ -370,13 +370,21 @@ public class Indicator extends View {
             }
 
             @Override
-            public void onPageScrolled(int arg0, float arg1, int arg2) {
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 if (null != onPageChangeListener) {
-                    onPageChangeListener.onPageScrolled(arg0, arg1, arg2);
+                    onPageChangeListener.onPageScrolled(position, positionOffset, positionOffsetPixels);
                 }
+                float currentPositionOffsetSum = position + positionOffset;
+                if (mLastPositionOffsetSum <= currentPositionOffsetSum) {
+                    nextItem = currentItem + 1;
+                } else {
+                    nextItem = currentItem - 1;
+                }
+
                 if (isMoving) {
-                    moving(currentItem, nextItem, arg1, true);
+                    moving(currentItem, nextItem, positionOffset, true);
                 }
+                mLastPositionOffsetSum = currentPositionOffsetSum;
             }
 
             @Override
@@ -384,43 +392,19 @@ public class Indicator extends View {
                 if (null != onPageChangeListener) {
                     onPageChangeListener.onPageScrollStateChanged(arg0);
                 }
-                /*
-                 * arg0 == 0:滑动结束 arg0 == 1:滑动开始 arg0 == 2 滑动手指离开屏幕
-				 */
-                if (arg0 == 0) {// 滑动结束
-                    currentItem = viewPager.getCurrentItem();
-                    // pageControl.resetMovingPoints(currentItem);
-                }
-                if (arg0 == 2) {// 滑动手指离开屏幕
-                    isMoving = false;
-                    leftActionAnimation(currentItem, viewPager.getCurrentItem());
-                    currentItem = viewPager.getCurrentItem();
-                }
-            }
-        });
-
-        viewPager.setOnTouchListener(new OnTouchListener() {
-            float XDown;
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (null != onTouchListener) {
-                    onTouchListener.onTouch(v, event);
-                }
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        XDown = event.getX();
+                switch (arg0) {
+                    case 0://滑动结束
+                        currentItem = viewPager.getCurrentItem();
+                        break;
+                    case 1://滑动开始
                         isMoving = true;
                         break;
-                    case MotionEvent.ACTION_MOVE:
-                        if (event.getX() > XDown && currentItem > 0) {
-                            nextItem = currentItem - 1;
-                        } else {
-                            nextItem = currentItem + 1;
-                        }
+                    case 2://滑动手指离开屏幕
+                        isMoving = false;
+                        leftActionAnimation(currentItem, viewPager.getCurrentItem());
+                        currentItem = viewPager.getCurrentItem();
                         break;
                 }
-                return false;
             }
         });
     }
@@ -434,7 +418,7 @@ public class Indicator extends View {
             builder.viewPager.setAdapter(builder.adapter);
         }
         setPointCount(builder.count);
-        setOnPageControlListener(builder.viewPager, builder.onPageChangeListener, builder.onTouchListener);
+        setOnPageControlListener(builder.viewPager, builder.onPageChangeListener);
     }
 
     public static final class Builder {
@@ -442,7 +426,6 @@ public class Indicator extends View {
         private ViewPager viewPager;
         private PagerAdapter adapter;
         private OnPageChangeListener onPageChangeListener;
-        private OnTouchListener onTouchListener;
 
         public Builder() {
         }
@@ -464,11 +447,6 @@ public class Indicator extends View {
 
         public Builder setOnPageChangeListener(OnPageChangeListener onPageChangeListener) {
             this.onPageChangeListener = onPageChangeListener;
-            return this;
-        }
-
-        public Builder setOnTouchListener(OnTouchListener onTouchListener) {
-            this.onTouchListener = onTouchListener;
             return this;
         }
     }
