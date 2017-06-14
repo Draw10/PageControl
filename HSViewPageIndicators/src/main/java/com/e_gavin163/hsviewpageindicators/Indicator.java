@@ -290,7 +290,6 @@ public class Indicator extends View {
                     } else {
                         stopLoop();
                         initTwoPoints(movingToIndex);
-                        calculate(movingToIndex, movingToIndex);
                         invalidate();
                     }
                     break;
@@ -355,6 +354,23 @@ public class Indicator extends View {
         startLoop();
     }
 
+    public void setCurrentIndex(ViewPager viewPager, int index) {
+        if (null == viewPager || index < 0 || index > viewPager.getAdapter().getCount()) {
+            return;
+        }
+        viewPager.setCurrentItem(index);
+        setCurrentIndex(index);
+    }
+
+    public void setCurrentIndex(int index) {
+        if (index < 0 || index > nums) {
+            return;
+        }
+        currentItem = index;
+        invalidate();
+
+    }
+
     int currentItem = 0;
     int nextItem = 0;
     boolean isMoving = false;
@@ -417,12 +433,21 @@ public class Indicator extends View {
             builder.count = builder.adapter.getCount();
             builder.viewPager.setAdapter(builder.adapter);
         }
-        setPointCount(builder.count);
+
         setOnPageControlListener(builder.viewPager, builder.onPageChangeListener);
+        setPointCount(builder.count);
+
+        if (builder.defaultIndex >= 0 && builder.defaultIndex < builder.count) {
+            builder.viewPager.setCurrentItem(builder.defaultIndex);
+            this.currentItem = builder.viewPager.getCurrentItem();
+            initTwoPoints(currentItem);
+            invalidate();
+        }
     }
 
     public static final class Builder {
         private int count;
+        private int defaultIndex;
         private ViewPager viewPager;
         private PagerAdapter adapter;
         private OnPageChangeListener onPageChangeListener;
@@ -432,6 +457,11 @@ public class Indicator extends View {
 
         public Builder setAdapter(PagerAdapter adapter) {
             this.adapter = adapter;
+            return this;
+        }
+
+        public Builder setDefaultIndex(int defaultIndex) {
+            this.defaultIndex = defaultIndex;
             return this;
         }
 

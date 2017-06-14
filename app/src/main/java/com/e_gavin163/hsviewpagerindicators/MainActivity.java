@@ -31,6 +31,7 @@ public class MainActivity extends Activity {
                 new Indicator.Builder()
                         .setAdapter(adapter)
                         .bindViewPager(viewPager)
+                        .setDefaultIndex(1)
         );
     }
 
