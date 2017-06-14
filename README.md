@@ -13,6 +13,18 @@ Please do! I'm happy to review and accept pull requests.
 
 
 ### Getting Started
+
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+	
+	dependencies {
+	        compile 'com.github.hurshi:ViewpagerIndicators:v1.0-alpha2'
+	}
+
 ##### In XML:  
 
 	<com.e_gavin163.hsviewpageindicators.Indicator
