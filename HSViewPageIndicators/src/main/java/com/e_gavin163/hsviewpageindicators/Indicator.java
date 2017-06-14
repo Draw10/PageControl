@@ -377,7 +377,7 @@ public class Indicator extends View {
     private float mLastPositionOffsetSum;
 
     private void setOnPageControlListener(final ViewPager viewPager, final OnPageChangeListener onPageChangeListener) {
-        viewPager.setOnPageChangeListener(new OnPageChangeListener() {
+        viewPager.addOnPageChangeListener(new OnPageChangeListener() {
             @Override
             public void onPageSelected(int arg0) {
                 if (null != onPageChangeListener) {
@@ -475,7 +475,7 @@ public class Indicator extends View {
             return this;
         }
 
-        public Builder setOnPageChangeListener(OnPageChangeListener onPageChangeListener) {
+        public Builder addOnPageChangeListener(OnPageChangeListener onPageChangeListener) {
             this.onPageChangeListener = onPageChangeListener;
             return this;
         }
