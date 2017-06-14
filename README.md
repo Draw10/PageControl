@@ -1,5 +1,5 @@
 # ViewPager Indicators  
-PageControl for Android  
+viewPager indicator for Android  
 
 ### Contribute
 Please do! I'm happy to review and accept pull requests.
