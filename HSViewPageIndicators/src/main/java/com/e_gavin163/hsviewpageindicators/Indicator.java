@@ -9,13 +9,17 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.os.Handler;
-import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 
 public class Indicator extends View {
     private Paint paintStroke, paintFill;
@@ -32,6 +36,10 @@ public class Indicator extends View {
     private HSPoint stayPoint;
     private int strokeWidth;
     private float oldAngle;
+
+    private final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+    private ScheduledFuture<?> scheduledFuture;
+    private final Handler updateHandler = new Handler();
 
     public Indicator(Context context) {
         super(context);
@@ -187,8 +195,8 @@ public class Indicator extends View {
         invalidate();
     }
 
-    private void setDistance(float distance) {
-        this.space = distance;
+    private void setMoveingDistance(float moveingDistance) {
+        this.space = moveingDistance;
         for (int i = 0; i < points.length; i++) {
             HSPoint p = points[i];
             HSPosition position = new HSPosition(radiusFocus + i * (radiusFocus * 2 + space), radiusFocus);
@@ -240,6 +248,88 @@ public class Indicator extends View {
         invalidate();
     }
 
+    private void startLoop() {
+        stopLoop();
+        if (!executorService.isShutdown()) {
+            scheduledFuture = executorService.scheduleAtFixedRate(
+                    new Runnable() {
+                        @Override
+                        public void run() {
+                            updateHandler.post(updateTask);
+                        }
+                    }, 0,
+                    10, TimeUnit.MILLISECONDS);
+        }
+    }
+
+    private void stopLoop() {
+        if (scheduledFuture != null) {
+            scheduledFuture.cancel(false);
+        }
+    }
+
+    private enum MovingSchedule {
+        moveTail, leftAnim
+    }
+
+    private MovingSchedule movingSchedule;
+
+    private final Runnable updateTask = new Runnable() {
+        @Override
+        public void run() {
+            switch (movingSchedule) {
+                case moveTail:
+                    if (!newStart && moveingPercent > 0) {
+                        moveingPercent -= 0.1;
+                        float pe = (float) ((moveingPercent * 100.0f) / 120.0);
+                        float middlePositionX = distancePercent * pe;
+                        HSPosition p = stayPoint.getPosition();
+                        p.setPositionX(movingPoint.getPosition().getPositionX() - middlePositionX);
+                        stayPoint.setPosition(p);
+                        calculate(oldFromIndex, oldToIndex);
+                        invalidate();
+                    } else {
+                        stopLoop();
+                        initTwoPoints(movingToIndex);
+                        calculate(movingToIndex, movingToIndex);
+                        invalidate();
+                    }
+                    break;
+                case leftAnim:
+                    if (!newStart && distancePercent > 0 && distancePercent < 1) {
+                        if (movingFromIndex == movingToIndex) {//BACK
+                            distancePercent -= 0.05;
+                            if (distancePercent < 0)
+                                distancePercent = 0;
+                            moving(movingFromIndex, movingToIndex, distancePercent, false);
+                        } else {//JUMP
+                            if (movingFromIndex < movingToIndex) {
+                                distancePercent += 0.05;
+                                if (distancePercent > 1)
+                                    distancePercent = 1;
+                            } else {
+                                distancePercent -= 0.05;
+                                if (distancePercent < 0)
+                                    distancePercent = 0;
+                            }
+                            moving(movingFromIndex, movingToIndex, distancePercent, false);
+                        }
+                    } else {
+                        stopLoop();
+                        moveTail(movingToIndex);
+                    }
+
+                    break;
+            }
+
+        }
+    };
+
+    private float moveingPercent = 1;
+    private int movingToIndex;
+    private int movingFromIndex;
+
+
     private void moveTail(final int toIndex) {
         if (newStart) {
             initTwoPoints(toIndex);
@@ -247,107 +337,30 @@ public class Indicator extends View {
             invalidate();
             return;
         }
-        final int MESSAGE_PERCENT = 0;
-        final int MESSAGE_FINISH = 1;
-        final float distance = movingPoint.getPosition().getPositionX() - stayPoint.getPosition().getPositionX();
+        moveingPercent = 1;
+        movingSchedule = MovingSchedule.moveTail;
+        this.movingToIndex = toIndex;
+        distancePercent = movingPoint.getPosition().getPositionX() - stayPoint.getPosition().getPositionX();
         float reduceAngle = (float) (35 * Math.PI / 180);
-        if (oldAngle > reduceAngle)
+        if (oldAngle > reduceAngle) {
             angle = oldAngle - reduceAngle;
-        final Handler mHandler = new Handler() {
-            public void handleMessage(Message msg) {
-                if (MESSAGE_PERCENT == msg.what) {
-                    float percent = (float) ((msg.arg1) / 120.0);
-                    float middlePositionX = distance * percent;
-                    HSPosition p = stayPoint.getPosition();
-                    p.setPositionX(movingPoint.getPosition().getPositionX() - middlePositionX);
-                    stayPoint.setPosition(p);
-                    calculate(oldFromIndex, oldToIndex);
-                    invalidate();
-                } else if (MESSAGE_FINISH == msg.what) {
-                    initTwoPoints(toIndex);
-                    calculate(toIndex, toIndex);
-                    invalidate();
-                }
-            }
-
-            ;
-        };
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                float percent = 1;
-                while (!newStart && percent > 0) {
-                    percent -= 0.1;
-                    Message msg = Message.obtain();
-                    msg.what = MESSAGE_PERCENT;
-                    msg.arg1 = (int) (percent * 100);
-                    mHandler.sendMessage(msg);
-                    try {
-                        Thread.sleep(20);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                mHandler.sendEmptyMessage(MESSAGE_FINISH);
-            }
-        }).start();
+        }
+        startLoop();
     }
 
     private void leftActionAnimation(final int fromIndex, final int toIndex) {
         newStart = false;
-        final int MESSAGE_BACK = 0;
-        final int MESSAGE_JUMP = 1;
-        final int MESSAGE_FINISH = 2;
-        final Handler mHandler = new Handler() {
-            @Override
-            public void handleMessage(Message msg) {
-                if (MESSAGE_BACK == msg.what) {
-                    distancePercent -= 0.05;
-                    if (distancePercent < 0)
-                        distancePercent = 0;
-                    moving(fromIndex, toIndex, distancePercent, false);
-                } else if (MESSAGE_JUMP == msg.what) {
-                    if (fromIndex < toIndex) {
-                        distancePercent += 0.05;
-                        if (distancePercent > 1)
-                            distancePercent = 1;
-                    } else {
-                        distancePercent -= 0.05;
-                        if (distancePercent < 0)
-                            distancePercent = 0;
-                    }
-                    moving(fromIndex, toIndex, distancePercent, false);
-                } else if (MESSAGE_FINISH == msg.what) {
-                    moveTail(toIndex);
-                }
-            }
-        };
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (!newStart && distancePercent > 0 && distancePercent < 1) {
-                    if (fromIndex == toIndex)
-                        mHandler.sendEmptyMessage(MESSAGE_BACK);
-                    else
-                        mHandler.sendEmptyMessage(MESSAGE_JUMP);
-                    try {
-                        Thread.sleep(20);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                mHandler.sendEmptyMessage(MESSAGE_FINISH);
-            }
-        }).start();
+        this.movingFromIndex = fromIndex;
+        this.movingToIndex = toIndex;
+        movingSchedule = MovingSchedule.leftAnim;
+        startLoop();
     }
 
     int currentItem = 0;
     int nextItem = 0;
     boolean isMoving = false;
 
-    private void setOnPageControlListener(final ViewPager viewPager, final Indicator pageControl, final OnPageChangeListener onPageChangeListener, final OnTouchListener onTouchListener) {
+    private void setOnPageControlListener(final ViewPager viewPager, final OnPageChangeListener onPageChangeListener, final OnTouchListener onTouchListener) {
         viewPager.setOnPageChangeListener(new OnPageChangeListener() {
             @Override
             public void onPageSelected(int arg0) {
@@ -362,7 +375,7 @@ public class Indicator extends View {
                     onPageChangeListener.onPageScrolled(arg0, arg1, arg2);
                 }
                 if (isMoving) {
-                    pageControl.moving(currentItem, nextItem, arg1, true);
+                    moving(currentItem, nextItem, arg1, true);
                 }
             }
 
@@ -380,7 +393,7 @@ public class Indicator extends View {
                 }
                 if (arg0 == 2) {// 滑动手指离开屏幕
                     isMoving = false;
-                    pageControl.leftActionAnimation(currentItem, viewPager.getCurrentItem());
+                    leftActionAnimation(currentItem, viewPager.getCurrentItem());
                     currentItem = viewPager.getCurrentItem();
                 }
             }
@@ -421,7 +434,7 @@ public class Indicator extends View {
             builder.viewPager.setAdapter(builder.adapter);
         }
         setPointCount(builder.count);
-        setOnPageControlListener(builder.viewPager, this, builder.onPageChangeListener, builder.onTouchListener);
+        setOnPageControlListener(builder.viewPager, builder.onPageChangeListener, builder.onTouchListener);
     }
 
     public static final class Builder {
