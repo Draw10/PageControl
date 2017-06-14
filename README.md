@@ -22,7 +22,7 @@ Please do! I'm happy to review and accept pull requests.
 	}
 	
 	dependencies {
-	        compile 'com.github.hurshi:ViewpagerIndicators:v1.0-alpha2'
+	        compile 'com.github.hurshi:ViewpagerIndicators:v1.0'
 	}
 
 ##### In XML:  
@@ -41,15 +41,15 @@ Please do! I'm happy to review and accept pull requests.
         
 ##### In Code:  
 
-	pageControl.setup(
-                new Indicator.Builder()
+	new Indicator.Builder()
                         .setAdapter(adapter)
                         .bindViewPager(viewPager)
-        );
-
+                        .setDefaultIndex(1)
+                        .setOnPageChangeListener(new ViewPager.OnPageChangeListener()...)
+			
 ##### All xml attributes:  
 
-	 <declare-styleable name="PageControl">
+	<declare-styleable name="PageControl">
         <attr name="colorMovingPoint" format="color" />
         <attr name="colorPoints" format="color" />
         <attr name="nums" format="integer" />
