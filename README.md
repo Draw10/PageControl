@@ -22,7 +22,7 @@ Please do! I'm happy to review and accept pull requests.
 	}
 	
 	dependencies {
-	        compile 'com.github.hurshi:ViewpagerIndicators:v1.0'
+	        compile 'com.github.hurshi:ViewpagerIndicators:v1.0.1'
 	}
 
 ##### In XML:  
