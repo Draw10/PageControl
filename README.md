@@ -1,5 +1,6 @@
 # ViewPager Indicators  
-viewPager indicator for Android  
+viewPager indicator for Android  [![](https://jitpack.io/v/hurshi/ViewpagerIndicators.svg)](https://jitpack.io/#hurshi/ViewpagerIndicators)
+
 
 ### Contribute
 Please do! I'm happy to review and accept pull requests.
